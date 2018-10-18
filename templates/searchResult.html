@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>اضافه کردن کتاب</title>
+</head>
+<body>
+
+{% if search_results %}
+<p>Found {{ search_results|length }} book{{ search_results|pluralize }}.</p>
+<ul>
+{% for book in search_results %}
+<li><a href="{{ link }}{{ book.book_id }}" > {{ book.book_name }}  {{ book.number_of_books }}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No books matched your search criteria.</p>
+{% endif %}
+</body>
+</html>
