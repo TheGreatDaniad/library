@@ -55,8 +55,9 @@ def keepersList(request):
 def keeperPage(request,id):
     global idd
     idd = id
+    theKeptBook =  books_in_use.objects.get(id=idd)
 
-    return render(request,'keeperPage.html')
+    return render(request,'keeperPage.html' , {'book':theKeptBook})
 
 def keeperPageResult(request):
     book_released = books_in_use.objects.get(id=idd)

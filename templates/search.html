@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>اضافه کردن کتاب</title>
-</head>
-<body>
-<form action="/library/search/result/" method="get">
 
-        <input type="text" name="bookName"> <br>
-    <input type="submit" name="submit" value="جستجو">
+{%  extends "base.html" %}
+
+ {%  block form %}
+ <form action="/library/search/result/" method="get">
+
+
+    <div class="form-group">
+      <label for="pwd"  class = "text-success">تعداد  :</label>
+      <input type="text" class="form-control " id="bookName" placeholder="نام کتاب" name="bookName">
+    </div>
+    <button type="submit" class="btn btn-success">جستجو</button>
+
 </form>
-{{ insert_result }}
-</body>
-</html>
+{% endblock%}
