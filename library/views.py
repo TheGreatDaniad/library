@@ -41,7 +41,7 @@ def theBookResult(request):
     keeperLastName = request.GET.get('keeperLastName',False)
     keeperStudentId= request.GET.get('keeperStudentId',False)
     tempBook = books.objects.get(book_id=bookIdd)
-    tempBook.number_of_books - 1
+    tempBook.number_of_books=tempBook.number_of_books - 1
     book_in_use=books_in_use(book_name=tempBook.book_name , keeper_first_name=keeperFirstName , keeper_last_name=keeperLastName , keeper_id= keeperStudentId)
     book_in_use.save()
     tempBook.save()
@@ -63,7 +63,7 @@ def keeperPageResult(request):
     book_released = books_in_use.objects.get(id=idd)
     book_released.delete()
     bookplus = books.objects.get(book_name=book_released.book_name)
-    bookplus.number_of_books + 1
+    bookplus.number_of_books=bookplus.number_of_books + 1
     bookplus.save()
     return render(request,'keeperPageResult.html')
 
